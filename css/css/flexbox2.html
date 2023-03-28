@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #02</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }
+
+        .flex-container div {
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) {
+            color: aliceblue;
+            background-color: black;
+            order: 1; /* Os flex-items possuem, por padrão, ordem 0. Quanto menor a ordem, antes eles aparecem */
+            order: 0;
+            order: -1;
+            align-self: center; /* Alinhamento de um único item */
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch; /* Default */
+        }
+
+        .flex-container div {
+            width: 100px;
+            /* O flex-grow pega o espaço que está vazio e distribui para os itens de acordo com seus pesos */
+            flex-grow: 0; /* Todas as divs com peso 0, logo nenhum espaço vazio será distribuído */
+            flex-grow: 1; /* Todas as divs com peso 1, logo o espaço vazio será distribuído igualmente entre todos os itens */
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 3; /* Primeira div filho terá peso 3 na divisão de espaço */
+        }
+
+        .flex-container {
+            width: 300px;
+            flex-shrink: 1; /* Mesma ideia do flex-grow porém para encolher quando o flex-container é menor que a soma dos flex-items */
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid #03</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .tag {
+            margin: 0;
+        }
+
+        header {
+            grid-area: cabecalho;
+        }
+
+        main {
+            grid-area: conteudo;
+        }
+
+        footer {
+            grid-area: rodape;
+        }
+
+        nav {
+            grid-area: navegacao;
+        }
+
+        body {
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 100px 1fr 100px;
+            grid-template-areas: /* Dita onde cada grid-area nomeada se localizará */
+                'cabecalho cabecalho' /* Linha 1 e coluna 1: cabecalho / Linha 1 e coluna 2: cabecalho */
+                'navegacao conteudo' /* Linha 2 e coluna 1: navegacao / Linha 2 e coluna 2: conteudo */
+                'rodape rodape'; /* Linha 3 e coluna 1: rodape / Linha 3 e coluna 2: rodape */
+        }
+
+        /* Podemos mudar o layout de acordo com o dispositivo */
+        @media(max-width: 700px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: 100px 70px 1fr 70px;
+                grid-template-areas: 
+                    'cabecalho'
+                    'navegacao'
+                    'conteudo'
+                    'rodape';
+            }
+        }
+
+        /* Podendo até mesmo retirar algum elemento para melhor se adequar à tela */
+        @media(max-width: 500px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows:70px 1fr 70px;
+                grid-template-areas: 
+                    'navegacao'
+                    'conteudo'
+                    'rodape';
+            }
+
+            header {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="tag">CONTEÚDO</main>
+    <header class="tag">CABEÇALHO</header>
+    <footer class="tag">RODAPÉ</footer>
+    <nav class="tag">NAVEGAÇÃO</nav>
+
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

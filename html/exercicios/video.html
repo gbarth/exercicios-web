@@ -1,0 +1,49 @@
+<video id="meuVideo" width="800" height="450" controls autoplay>
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Seu browser não suporta a tag vídeo
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button id="playB">Play</button>
+    <button id="pauseB">Pause</button>
+</div>
+
+<style>
+    .progresso {
+        height: 10px;
+        width: 600px;
+        border: solid 1px #444;
+        margin: 20px;
+    }
+    .progresso > div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+    }
+</style>
+
+<script>
+    const video = document.getElementById('meuVideo')
+    const play = document.getElementById('playB')
+    const pause = document.getElementById('pauseB')
+
+    play.addEventListener('click', function() {
+        video.play()
+    })
+    pause.addEventListener('click', function() {
+        video.pause()
+    })
+
+    setInterval(() => {
+        const progressPercent = (video.currentTime * 100)/video.duration
+        const progressBar = document.querySelector(`[wm-progresso = meuVideo] > div`)
+        progressBar.style.width = `${progressPercent}%`   
+    }, 1);
+
+</script>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* ------ DENTRO DE UMA SECTION, O SEGUNDO ELEMENTO DO TIPO SPAN */
+        section > span:nth-of-type(2) {
+            color: #ff0;
+            background-color: #000;
+        }
+
+        /* ------ DENTRO DE UMA SECTION, TODOS OS FILHOS ÍMPARES */
+        /* section > :nth-child(odd) {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ PRIMEIRO FILHO DE UM ELEMENTO QUE SEJA DO TIPO SPAN */
+        /* span:nth-child(1) {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ ATRIBUTO */
+        /* [feira] {
+            color: #ff0;
+            background-color: #000;
+        } */
+        
+        /* ------ UMA OL QUE VENHA DEPOIS DE P (NÃO NECESSARIAMENTE DIRETAMENTE DEPOIS) E QUE TENHA O MESMO ELEMENTO PAI */
+        /* p ~ ol {
+            color: #ff0;
+            background-color: #000;
+        } */
+        
+        /* ------ NÃO FUNCIONA POIS A OL NÃO VEM DIRETAMENTE DEPOIS DE P (APESAR DE TER O MESMO ELEMENTO PAI) */
+        /* p + ol {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ UMA UL QUE VENHA DIRETAMENTE DEPOIS DE P (E TENHA O MESMO ELEMENTO PAI) */
+        /* p + ul {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ DESCENDENTE */
+        /* #aninhado section {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ NÃO FUNCIONA POIS A SECTION NÃO É DESCENDENTE DIRETO */
+        /* #aninhado > section {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ DESCENDENTE DIRETO */
+        /* #aninhado > div {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ ID */
+        /* #aprovados {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ CLASSE*/
+        /* .tag {
+            color: #ff0;
+            background-color: #000;
+        } */
+
+        /* ------ TODOS ELEMENTOS */
+        /* * {
+            color: #ff0;
+            background-color: #000;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag nolabel'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
