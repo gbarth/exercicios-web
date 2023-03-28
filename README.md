@@ -3,3 +3,4 @@
 
 
 > Status do Projeto: Concluido :heavy_check_mark:
+Obs.: Os códigos CSS estão nos arquivos HTML.
